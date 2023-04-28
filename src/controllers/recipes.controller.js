@@ -162,11 +162,11 @@ const searchRecipeByName = async(name) =>{
 }
 
 const deleteRecipe = async(id) =>{
-    const deleteRecipe = await Recipe.destroy({
+    const deleteRecipeModel = await Recipe.destroy({
         where: {id}
     })
     
-    if(deleteRecipe)return id;
+    if(deleteRecipeModel)return id;
     throw new Error("No se encontro la receta");
 
 }
