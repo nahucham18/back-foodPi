@@ -161,6 +161,15 @@ const searchRecipeByName = async(name) =>{
     throw new Error('Recipe not found')
 }
 
+const deleteRecipe = async(id) =>{
+    const deleteRecipe = await Recipe.destoy({
+        where: {id}
+    })
+    
+    if(deleteRecipe === 0) throw new Error ("No se encontro la receta");
+    return id;
+}
 
 
-module.exports = {createRecipe, getRecipeById, getAllRecipes, searchRecipeByName};
+
+module.exports = {createRecipe, getRecipeById, getAllRecipes, searchRecipeByName,deleteRecipe};

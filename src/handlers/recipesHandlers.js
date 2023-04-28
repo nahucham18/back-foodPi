@@ -1,4 +1,4 @@
-const {createRecipe ,getRecipeById , getAllRecipes, searchRecipeByName} = require('../controllers/recipes.controller')
+const {createRecipe ,getRecipeById , getAllRecipes, searchRecipeByName,deleteRecipe} = require('../controllers/recipes.controller')
 
 //Handler por si recibe una query o no .
 const getRecipesHandler = async(req,res) =>{
@@ -39,8 +39,20 @@ const postRecipesHandler= async(req,res)=>{
     }
 }
 
+//Handler de la ruta Delte, para borrar una receta por ID.
+const deleteRecipeHandler = async (req,res)=>{
+    const {id} = req.params;
+    try {
+        const idRecipe = await deleteRecipe(id);
+        res.status(200).send("se borro")
+    } catch (error) {
+        res.status(402).json({error: error.message})
+    }
+}
+
 module.exports = {
     getRecipesHandler,
     getRecipesByIdHandler,
-    postRecipesHandler
+    postRecipesHandler,
+    deleteRecipeHandler,
 }
