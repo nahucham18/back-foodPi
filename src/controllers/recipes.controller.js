@@ -166,8 +166,9 @@ const deleteRecipe = async(id) =>{
         where: {id}
     })
     
-    if(deleteRecipe.length === 0) throw new Error ("No se encontro la receta");
-    return id;
+    if(deleteRecipe)return id;
+    throw new Error("No se encontro la receta");
+
 }
 
 
