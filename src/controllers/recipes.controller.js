@@ -162,7 +162,7 @@ const searchRecipeByName = async(name) =>{
 }
 
 const deleteRecipe = async(id) =>{
-    const deleteRecipe = await Recipe.destoy({
+    const deleteRecipe = await Recipe.destroy({
         where: {id}
     })
     
