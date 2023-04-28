@@ -54,8 +54,8 @@ const cleanArray = (array) =>{
 }
 
 
-const createRecipe = async(title,image,summary,healthScore,steps,readyInMinutes,servings,pricePerServing, dietTypes)=>{
-    if(!title || !summary || !healthScore || !steps ||!dietTypes || !image ) throw new Error ('Missing Data')
+const createRecipe = async(title,image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKmwKcebNu-EBvyrfLrYctaZaz-Jq_qCysTFuID_oMGThWWtN73hB--uyOx2AL8k-iYEk&usqp=CAU",summary,healthScore,steps,readyInMinutes,servings,pricePerServing, dietTypes)=>{
+    if(!title || !summary || !healthScore || !steps ||!dietTypes ) throw new Error ('Missing Data')
     const newRecipe = await Recipe.create({title,image,summary,healthScore,steps,readyInMinutes,servings,pricePerServing})
     let getDiet = await Diet.findAll({
         where:{

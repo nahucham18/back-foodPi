@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 const { diet } = require('./src/controllers/diets.controller.js')
 
 // Syncing all the models at once.
-conn.sync({ alter: true }).then(() => {
+conn.sync({ force: true }).then(() => {
   server.listen(3001, async() => {
     await diet();
     console.log('%s listening at 3001'); // eslint-disable-line no-console
