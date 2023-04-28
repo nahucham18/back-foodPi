@@ -44,7 +44,7 @@ const deleteRecipeHandler = async (req,res)=>{
     const {id} = req.params;
     try {
         const idRecipe = await deleteRecipe(id);
-        res.status(200).send("se borro")
+        res.status(200).json(idRecipe)
     } catch (error) {
         res.status(402).json({error: error.message})
     }
